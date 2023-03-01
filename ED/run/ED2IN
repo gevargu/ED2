@@ -87,9 +87,9 @@ $ED_NL
    !---------------------------------------------------------------------------------------!
    !     Start of simulation. Information must be given in UTC time.                       !
    !---------------------------------------------------------------------------------------!
-   NL%IMONTHA  = 01    ! Month
+   NL%IMONTHA  = 10    ! Month
    NL%IDATEA   = 01    ! Day
-   NL%IYEARA   = 2000  ! Year
+   NL%IYEARA   = 2011  ! Year
    NL%ITIMEA   = 0000  ! UTC
    !---------------------------------------------------------------------------------------!
 
@@ -100,7 +100,7 @@ $ED_NL
    !---------------------------------------------------------------------------------------!
    NL%IMONTHZ  = 01    ! Month
    NL%IDATEZ   = 01    ! Day
-   NL%IYEARZ   = 2100  ! Year
+   NL%IYEARZ   = 2025  ! Year
    NL%ITIMEZ   = 0000  ! UTC
    !---------------------------------------------------------------------------------------!
 
@@ -141,7 +141,7 @@ $ED_NL
    !                0.  Longitude/latitude grid                                            !
    !                1.  Polar-stereographic                                                !
    !---------------------------------------------------------------------------------------!
-   NL%N_ED_REGION   =  0
+   NL%N_ED_REGION   =  1
    NL%GRID_TYPE     =  0
 
       !------------------------------------------------------------------------------------!
@@ -156,10 +156,10 @@ $ED_NL
       ! ED_REG_LONMAX  -- Easternmost point of each region.                                !
       !------------------------------------------------------------------------------------!
       NL%GRID_RES       =    1.0
-      NL%ED_REG_LATMIN  =  -12.0, -7.5, 10.0,  -6.0
-      NL%ED_REG_LATMAX  =    1.0, -3.5, 15.0,  -1.0
-      NL%ED_REG_LONMIN  =  -66.0,-58.5, 70.0, -63.0
-      NL%ED_REG_LONMAX  =  -49.0,-54.5, 35.0, -53.0
+      NL%ED_REG_LATMIN  =  33.5, -7.5, 10.0,  -6.0
+      NL%ED_REG_LATMAX  =  34.5, -3.5, 15.0,  -1.0
+      NL%ED_REG_LONMIN  =  -95.5,-58.5, 70.0, -63.0
+      NL%ED_REG_LONMAX  =  -94.5,-54.5, 35.0, -53.0
       !------------------------------------------------------------------------------------!
 
 
@@ -222,7 +222,7 @@ $ED_NL
    ! POI_RES -- grid resolution of each POI (degrees).  This is used only to define the    !
    !            soil types                                                                 !
    !---------------------------------------------------------------------------------------!
-    NL%N_POI    =       1
+    NL%N_POI    =       0
     NL%POI_LAT  =   5.282
     NL%POI_LON  = -52.912
     NL%POI_RES  =    1.00
@@ -269,9 +269,9 @@ $ED_NL
    NL%IMOUTPUT  =  3
    NL%IQOUTPUT  =  0
    NL%IYOUTPUT  =  0
-   NL%ITOUTPUT  =  3
+   NL%ITOUTPUT  =  0
    NL%IOOUTPUT  =  0
-   NL%ISOUTPUT  =  3
+   NL%ISOUTPUT  =  0
    !---------------------------------------------------------------------------------------!
 
 
@@ -370,8 +370,8 @@ $ED_NL
    ! FFILOUT -- Path and prefix for analysis files (all but history/restart).              !
    ! SFILOUT -- Path and prefix for history files.                                         !
    !---------------------------------------------------------------------------------------!
-   NL%FFILOUT = '/mypath/generic-prefix'
-   NL%SFILOUT = '/mypath/generic-prefix'
+   NL%FFILOUT = '/uufs/chpc.utah.edu/common/home/anderegg-group3/german/ED2_tutorial/output/ok_lob/m111/DFP14'
+   NL%SFILOUT ='/uufs/chpc.utah.edu/common/home/anderegg-group3/german/ED2_tutorial/output/ok_lob/m111/DFP14'
    !---------------------------------------------------------------------------------------!
 
 
@@ -421,7 +421,7 @@ $ED_NL
    !        ED2.1 state file.  It allows for different layering, and assigns via nearest   !
    !        neighbor.                                                                      !
    !---------------------------------------------------------------------------------------!
-   NL%IED_INIT_MODE   = 6
+   NL%IED_INIT_MODE   = 0
    !---------------------------------------------------------------------------------------!
 
 
@@ -480,8 +480,8 @@ $ED_NL
    !           If only liquid water is standing, the water will be always collapsed        !
    !           into a single layer.                                                        ! 
    !---------------------------------------------------------------------------------------!
-   NL%NZG = 16
-   NL%NZS = 4
+   NL%NZG = 15
+   NL%NZS = 1
    !---------------------------------------------------------------------------------------!
 
 
@@ -528,7 +528,7 @@ $ED_NL
    !   5 -- loam                |  11 -- clay                |  17 -- clayey silt          !
    !   6 -- sandy clay loam     |  12 -- peat                                              !
    !---------------------------------------------------------------------------------------!
-   NL%NSLCON   = 6
+   NL%NSLCON   = 3
    !---------------------------------------------------------------------------------------!
 
 
@@ -577,8 +577,8 @@ $ED_NL
    ! their sum doesn't exceed 1.  In case ISOILFLG is 2 but the fractions do not meet the  !
    ! criteria, ED-2 uses NSLCON instead.                                                   !
    !---------------------------------------------------------------------------------------!
-   NL%SLXCLAY = 0.345
-   NL%SLXSAND = 0.562
+   NL%SLXCLAY = 0.
+   NL%SLXSAND = 0.
    !---------------------------------------------------------------------------------------!
 
 
@@ -624,8 +624,8 @@ $ED_NL
    !           between the wilting point and field capacity).                              !
    ! STGOFF  - initial temperature offset (soil temperature = air temperature + offset)    !
    !---------------------------------------------------------------------------------------!
-   NL%SLZ     =   -8.000,-7.072,-6.198,-5.380,-4.617,-3.910,-3.259,-2.664,-2.127,-1.648,
-                  -1.228,-0.866,-0.566,-0.326,-0.150,-0.040
+   NL%SLZ     =   -2.0,-1.8,-1.6,-1.4,-1.2,-1.0,-0.9,-0.8,-0.7,-0.6,
+                  -0.5,-0.4,-0.3,-0.2,-0.1
    NL%SLMSTR  =    1.000, 1.000, 1.000, 1.000, 1.000, 1.000, 1.000, 1.000, 1.000, 1.000,
                    1.000, 1.000, 1.000, 1.000, 1.000, 1.000
    NL%STGOFF  =    0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000,
@@ -663,13 +663,13 @@ $ED_NL
    !  SOILDEPTH_DB     -- If ISOILDEPTHFLG=1, this variable specifies the full path of the !
    !                      file that contains soil moisture and temperature information.    !
    !---------------------------------------------------------------------------------------!
-   NL%VEG_DATABASE      = '/mypath/veget_data/oge2/OGE2_'
+   NL%VEG_DATABASE      = '/uufs/chpc.utah.edu/common/home/anderegg-group3/german/ED2_tutorial/inputs/oge2/OGE2_'
    NL%SOIL_DATABASE     = '/mypath/soil_data/texture/Hengl/Hengl_'
    NL%SLCOL_DATABASE    = '/mypath/soil_data/colour/LC2007JGRB/LC2007JGRB_'
    NL%LU_DATABASE       = '/mypath/glu-3.3.1+sa1.bau/glu-3.3.1+sa1.bau-'
    NL%PLANTATION_FILE   = ''
-   NL%THSUMS_DATABASE   = '/mypath/thermal_sums/'
-   NL%ED_MET_DRIVER_DB  = '/mypath/ED_MET_DRIVER_HEADER'
+   NL%THSUMS_DATABASE   = '/uufs/chpc.utah.edu/common/home/anderegg-group3/german/ED2_tutorial/inputs/'
+   NL%ED_MET_DRIVER_DB  = '/uufs/chpc.utah.edu/common/home/anderegg-group3/german/ED2_tutorial/climate_data/BK_OK_MET_HEADER'
    NL%OBSTIME_DB        = '' !Reference file: /ED/run/obstime_template.time
    NL%SOILSTATE_DB      = '/mypath/soil_data/temp+moist/STW1996OCT.dat'
    NL%SOILDEPTH_DB      = '/mypath/soil_data/depth/H250mBRD/H250mBRD_'
@@ -842,7 +842,7 @@ $ED_NL
    !                       in the biophysics (thus doubling the number of prognostic       !
    !                       variables).                                                     !
    !---------------------------------------------------------------------------------------!
-   NL%IBRANCH_THERMO = 1
+   NL%IBRANCH_THERMO = 0
    !---------------------------------------------------------------------------------------!
 
 
@@ -872,7 +872,7 @@ $ED_NL
    !      utilisation limitation case (C3), and use the Michaelis-Mentel coefficients      !
    !      along with other parameters from von Caemmerer (2000).                           !
    !---------------------------------------------------------------------------------------!
-   NL%IPHYSIOL = 2
+   NL%IPHYSIOL = 0
    !---------------------------------------------------------------------------------------!
 
 
@@ -990,7 +990,7 @@ $ED_NL
    !  Hydraulics scheme: plants shed their leaves once predawn leaf water potential is     !
    !              lower than tugor loss point for 10 consecutive days                      !
    !---------------------------------------------------------------------------------------!
-   NL%IPHEN_SCHEME    = 2
+   NL%IPHEN_SCHEME    = 4
    !---------------------------------------------------------------------------------------!
 
 
@@ -1028,7 +1028,7 @@ $ED_NL
    !                 3.  (Beta) Similar to 2, but allocation to reproduction may be set as !
    !                     a function of height using an asymptotic curve.                   !
    !---------------------------------------------------------------------------------------!
-   NL%REPRO_SCHEME    = 2
+   NL%REPRO_SCHEME    = 1
    !---------------------------------------------------------------------------------------!
 
 
@@ -1245,7 +1245,7 @@ $ED_NL
    !    storage has sufficient carbon to increment all living tissues in the upcoming      !
    !    month.  This option will eventually become the default.                            !
    !---------------------------------------------------------------------------------------!
-   NL%ISTRUCT_GROWTH_SCHEME = 1
+   NL%ISTRUCT_GROWTH_SCHEME = 0
    !---------------------------------------------------------------------------------------!
 
    !---------------------------------------------------------------------------------------!
@@ -1747,7 +1747,7 @@ $ED_NL
    ! 16 - Tropical/subtropical C3 grass                                                    !
    ! 17 - (Beta) Lianas                                                                    !
    !---------------------------------------------------------------------------------------!
-   NL%INCLUDE_THESE_PFT = 1,2,3,4,16
+   NL%INCLUDE_THESE_PFT = 6
    NL%PASTURE_STOCK     = 1
    NL%AGRI_STOCK        = 1
    NL%PLANTATION_STOCK  = 3
@@ -1860,7 +1860,7 @@ $ED_NL
    !                              TREEFALL_DISTURBANCE_RATE is internally adjusted so the  !
    !                              average patch age is still 1/TREEFALL_DISTURBANCE_RATE   !
    !---------------------------------------------------------------------------------------!
-   NL%TREEFALL_DISTURBANCE_RATE  = 0.0125
+   NL%TREEFALL_DISTURBANCE_RATE  = 0
    NL%TIME2CANOPY                = 0
    !---------------------------------------------------------------------------------------!
 
@@ -1988,10 +1988,10 @@ $ED_NL
    !---------------------------------------------------------------------------------------!
    NL%IMETTYPE    = 1
    NL%ISHUFFLE    = 0
-   NL%METCYC1     = 2004
-   NL%METCYCF     = 2014
-   NL%IMETAVG     = 1
-   NL%IMETRAD     = 5
+   NL%METCYC1     = 2011
+   NL%METCYCF     = 2011
+   NL%IMETAVG     = 0
+   NL%IMETRAD     = 0
    NL%INITIAL_CO2 = 410.
    !---------------------------------------------------------------------------------------!
 
@@ -2025,8 +2025,8 @@ $ED_NL
    !               simulation.                                                             !
    ! PHENPATH   -- path and prefix of the prescribed phenology data.                       !
    !---------------------------------------------------------------------------------------!
-   NL%IEDCNFGF   = '/mypath/config.xml'
-   NL%EVENT_FILE = '/mypath/event.xml'
+   NL%IEDCNFGF   = ''
+   NL%EVENT_FILE = ''
    !---------------------------------------------------------------------------------------!
 
 
